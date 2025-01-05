@@ -39,9 +39,9 @@ const Cart = () => {
           ) : (
             basket?.map((item, index) => {
               return (
-                <section className={classes.cart__product}>
+                <section key={index} className={classes.cart__product}>
                   <ProductCards
-                    key={index}
+                    key={item.id}
                     product={item}
                     renderDesc={true}
                     renderAdd={false}
@@ -52,14 +52,14 @@ const Cart = () => {
                       className={classes.btn}
                       onClick={() => increment(item)}
                     >
-                      <IoIosArrowUp size={20}/>
+                      <IoIosArrowUp size={20} />
                     </button>
                     <span>{item.amount}</span>
                     <button
                       className={classes.btn}
                       onClick={() => decrement(item.id)}
                     >
-                      <IoIosArrowDown size={20}/>
+                      <IoIosArrowDown size={20} />
                     </button>
                   </div>
                 </section>
